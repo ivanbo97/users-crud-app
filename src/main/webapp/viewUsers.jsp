@@ -23,7 +23,7 @@
 				<td>${user.id}</td>
 				<td>${user.firstName}</td>
 				<td>${user.lastName}</td>
-				<td><a href="editform.jsp?id=${u.getId()}">Edit</a></td>
+				<td><a href="updateRequest?id=${user.id}">Edit</a></td>
 				<td><a href="delete?id=${user.id}">Delete</a></td>
 			</tr>
 		</c:forEach>
