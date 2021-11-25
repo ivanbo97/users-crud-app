@@ -25,5 +25,4 @@ public class DeleteUserServlet extends HttpServlet {
     getServletContext().getRequestDispatcher("/viewUsers.jsp").forward(req, resp);
   }
 
-
 }
