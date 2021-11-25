@@ -1,13 +1,14 @@
 package com.proxiad.task.ivanboyukliev.userscrudapp.repository;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 
 public class UserRepository {
 
-  private List<User> users = new ArrayList<>();
+  private Set<User> users = new HashSet<>();
 
   private UserRepository() {
     populateRepository();
@@ -34,7 +35,7 @@ public class UserRepository {
     users.add(new User(6, "Sarah", "Michael"));
   }
 
-  public List<User> findAll() {
+  public Set<User> findAll() {
     return users;
   }
 
@@ -43,12 +44,25 @@ public class UserRepository {
   }
 
   public void deleteUserById(int id) {
-    users.remove(id);
+
+    Optional<User> foundUser = findById(id);
+    if (foundUser.isPresent()) {
+      users.remove(foundUser.get());
+    }
   }
 
-  public void updateUser(User userForUpdate, User newUserData) {
-    if (users.contains(userForUpdate)) {
-      users.set(userForUpdate.getId(), newUserData);
+  /*
+   * public void updateUser(User userForUpdate, User newUserData) { if
+   * (users.contains(userForUpdate)) { users.set(userForUpdate.getId(), newUserData); } }
+   */
+
+
+  public Optional<User> findById(int id) {
+    Optional<User> foundUserOptional = Optional.empty();
+    for (User user : users) {
+      if (user.getId() == id)
+        foundUserOptional = Optional.of(user);
     }
+    return foundUserOptional;
   }
 }
