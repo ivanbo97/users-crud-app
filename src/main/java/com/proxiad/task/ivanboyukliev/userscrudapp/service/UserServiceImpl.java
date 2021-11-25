@@ -3,6 +3,7 @@ package com.proxiad.task.ivanboyukliev.userscrudapp.service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 import com.proxiad.task.ivanboyukliev.userscrudapp.repository.UserRepository;
@@ -11,7 +12,6 @@ import com.proxiad.task.ivanboyukliev.userscrudapp.utils.SortUsersByIdAscending;
 public class UserServiceImpl implements UserService {
 
   private UserRepository userRepository;
-
 
   public UserServiceImpl() {
     userRepository = UserRepository.getInstance();
@@ -26,13 +26,18 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  public Optional<User> findUserById(int userId) {
+    return userRepository.findById(userId);
+  }
+
+  @Override
   public void saveUser(User newUser) {
     userRepository.addUser(newUser);
   }
 
   @Override
-  public void updateUser(User userForAupdate, User newUserData) {
-    // userRepository.updateUser(userForAupdate, newUserData);
+  public void updateUser(int userId, User newUserData) {
+    userRepository.updateUser(userId, newUserData);
   }
 
   @Override
