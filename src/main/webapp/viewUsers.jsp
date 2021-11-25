@@ -10,7 +10,8 @@
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<h1>List of Users</h1>
-	<table border="1" width="90%">
+	<br><br>
+	<table class="center" border="1" width="90%">
 		<tr>
 			<th>Id</th>
 			<th>First Name</th>
@@ -23,7 +24,7 @@
 				<td>${user.firstName}</td>
 				<td>${user.lastName}</td>
 				<td><a href="editform.jsp?id=${u.getId()}">Edit</a></td>
-				<td><a href="deleteuser.jsp?id=${u.getId()}">Delete</a></td>
+				<td><a href="delete?id=${user.id}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
