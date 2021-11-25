@@ -51,11 +51,13 @@ public class UserRepository {
     }
   }
 
-  /*
-   * public void updateUser(User userForUpdate, User newUserData) { if
-   * (users.contains(userForUpdate)) { users.set(userForUpdate.getId(), newUserData); } }
-   */
-
+  public void updateUser(int userId, User newUserData) {
+    Optional<User> retrievedUser = findById(userId);
+    if (retrievedUser.isPresent()) {
+      users.remove(retrievedUser.get());
+      users.add(newUserData);
+    }
+  }
 
   public Optional<User> findById(int id) {
     Optional<User> foundUserOptional = Optional.empty();
