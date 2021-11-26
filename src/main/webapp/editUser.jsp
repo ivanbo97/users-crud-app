@@ -13,12 +13,12 @@
 		<table>
 			<tr>
 				<td>First Name:</td>
-				<td><input type="text" name="fname" value=${applicationScope.user.firstName} /></td>
+				<td><input type="text" name="fname" value=${applicationScope.user.firstName} required /></td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
 				<td><input type="text" name="lname"
-					value=${applicationScope.user.lastName} /></td>
+					value=${applicationScope.user.lastName} required/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Save" /></td>
