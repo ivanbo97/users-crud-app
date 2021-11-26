@@ -1,5 +1,6 @@
 package com.proxiad.task.ivanboyukliev.userscrudapp.servlet;
 
+import static com.proxiad.task.ivanboyukliev.userscrudapp.utils.ApplicationConstants.INSERT_USR_URL;
 import java.io.IOException;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 import com.proxiad.task.ivanboyukliev.userscrudapp.service.UserService;
@@ -9,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/insertUser")
+@WebServlet(INSERT_USR_URL)
 public class InserNewUserServlet extends HttpServlet {
 
   private static final long serialVersionUID = 940848694511968216L;
