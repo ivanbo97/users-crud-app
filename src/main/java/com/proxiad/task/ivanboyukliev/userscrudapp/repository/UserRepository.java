@@ -1,19 +1,23 @@
 package com.proxiad.task.ivanboyukliev.userscrudapp.repository;
 
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
+import com.proxiad.task.ivanboyukliev.userscrudapp.utils.RandomNumberGenerator;
 
 public class UserRepository {
 
-  private Set<User> users = new HashSet<>();
+  private Set<User> users = Collections.synchronizedSet(new HashSet<User>());
 
   private UserRepository() {
     populateRepository();
   }
 
+  // static inner class - inner classes are not loaded until they are
+  // referenced.
   private static class SingletonHelper {
     private static final UserRepository uniqueUnstance = new UserRepository();
 
@@ -40,7 +44,11 @@ public class UserRepository {
   }
 
   public void addUser(User newUser) {
-    users.add(newUser);
+    int userId;
+    do {
+      userId = RandomNumberGenerator.generateRandomNUmber();
+      newUser.setId(userId);
+    } while (!users.add(newUser));
   }
 
   public void deleteUserById(int id) {
