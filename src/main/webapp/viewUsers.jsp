@@ -29,6 +29,6 @@
 		</c:forEach>
 	</table>
 	<br />
-	<a href="adduserform.jsp">Add New User</a>
+	<a href="newUserForm.jsp">Add New User</a>
 </body>
 </html>
