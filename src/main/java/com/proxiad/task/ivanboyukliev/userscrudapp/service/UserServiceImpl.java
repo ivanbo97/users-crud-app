@@ -36,8 +36,8 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void updateUser(int userId, User newUserData) {
-    userRepository.updateUser(userId, newUserData);
+  public Optional<User> updateUser(int userId, User newUserData) {
+    return userRepository.updateUser(userId, newUserData);
   }
 
   @Override

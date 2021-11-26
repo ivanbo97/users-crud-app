@@ -59,12 +59,16 @@ public class UserRepository {
     }
   }
 
-  public void updateUser(int userId, User newUserData) {
+  public Optional<User> updateUser(int userId, User newUserData) {
     Optional<User> retrievedUser = findById(userId);
+    Optional<User> updatedUser = Optional.empty();
+
     if (retrievedUser.isPresent()) {
       users.remove(retrievedUser.get());
       users.add(newUserData);
+      updatedUser = Optional.of(newUserData);
     }
+    return updatedUser;
   }
 
   public Optional<User> findById(int id) {
