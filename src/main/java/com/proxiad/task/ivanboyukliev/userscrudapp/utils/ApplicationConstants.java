@@ -9,4 +9,5 @@ public final class ApplicationConstants {
   public static final String UPDATE_USR_REQ = "/updateRequest";
   public static final String UPDATE_USR_URL = "/updateUser";
 
+
 }
