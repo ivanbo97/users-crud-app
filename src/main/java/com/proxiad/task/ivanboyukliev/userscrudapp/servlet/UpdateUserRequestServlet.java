@@ -1,16 +1,18 @@
 package com.proxiad.task.ivanboyukliev.userscrudapp.servlet;
 
+import static com.proxiad.task.ivanboyukliev.userscrudapp.utils.ApplicationConstants.UPDATE_USR_REQ;
 import java.io.IOException;
 import java.util.Optional;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 import com.proxiad.task.ivanboyukliev.userscrudapp.service.UserService;
+import com.proxiad.task.ivanboyukliev.userscrudapp.utils.HtmlErrorGenerator;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/updateRequest")
+@WebServlet(UPDATE_USR_REQ)
 public class UpdateUserRequestServlet extends HttpServlet {
 
   private UserService userService;
@@ -26,8 +28,9 @@ public class UpdateUserRequestServlet extends HttpServlet {
     int id = Integer.parseInt(req.getParameter("id"));
 
     Optional<User> retrievedUser = userService.findUserById(id);
+
     if (retrievedUser.isEmpty()) {
-      // TODO return error jsp page
+      resp.getWriter().write(HtmlErrorGenerator.generateNotExisitngStudentErr());
       return;
     }
 
