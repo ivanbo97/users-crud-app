@@ -6,7 +6,7 @@
    </head>
    <body>
       <h1>Servlet API + JSP CRUD Example</h1>
-      <a href="user">Add User</a>  
-      <a href="user">View Users</a>  
+      <a href="newUserForm.jsp">Add User</a>  
+      <a href="getAllUsrs">View Users</a>  
    </body>
 </html>
