@@ -5,8 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>All Users</title>
-<style><%@include file="/resources/css/page.css"%></style>
-<style><%@include file="/resources/css/tableStyle.css"%></style>
+<style>
+<%@include file="/resources/css/page.css"%>
+<%@include file="/resources/css/tableStyle.css"%>
+<%@include file="/resources/css/linksStyle.css"%>
+</style>
 </head>
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -30,6 +33,6 @@
 		</c:forEach>
 	</table>
 	<br />
-	<a href="newUserForm.jsp">Add New User</a>
+	<a class="back-link" href="newUserForm.jsp">Add New User</a>
 </body>
 </html>
