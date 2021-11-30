@@ -1,6 +1,7 @@
 package com.proxiad.task.ivanboyukliev.userscrudapp.servlet;
 
 import static com.proxiad.task.ivanboyukliev.userscrudapp.utils.ApplicationConstants.UPDATE_USR_REQ;
+import static com.proxiad.task.ivanboyukliev.userscrudapp.utils.ApplicationConstants.UPDATE_USR_URL;
 import java.io.IOException;
 import java.util.Optional;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
@@ -35,6 +36,7 @@ public class UpdateUserRequestServlet extends HttpServlet {
     }
 
     getServletContext().setAttribute("user", retrievedUser.get());
+    getServletContext().setAttribute("formAction", UPDATE_USR_URL.substring(1));
     getServletContext().getRequestDispatcher("/editUser.jsp").forward(req, resp);
   }
 
