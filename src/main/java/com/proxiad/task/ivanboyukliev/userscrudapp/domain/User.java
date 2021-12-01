@@ -1,8 +1,10 @@
 package com.proxiad.task.ivanboyukliev.userscrudapp.domain;
 
 import java.util.Objects;
+import com.proxiad.task.ivanboyukliev.userscrudapp.baseentity.BaseEntity;
+import com.proxiad.task.ivanboyukliev.userscrudapp.baseentity.BaseNamedEntity;
 
-public class User {
+public class User implements BaseNamedEntity, BaseEntity {
 
   private Integer id;
   private String firstName;
@@ -63,6 +65,14 @@ public class User {
     User other = (User) obj;
     return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
         && Objects.equals(lastName, other.lastName);
+  }
+
+  @Override
+  public String getName() {
+    if (getFirstName().isBlank() || getLastName().isBlank()) {
+      return "";
+    }
+    return getFirstName() + getLastName();
   }
 
 }
