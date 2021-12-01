@@ -6,4 +6,4 @@
     <a  style="display:inline-block;margin-right:20px;font-family:Trirong,serif;color:#ffffff;font-size: 30px;" href="newUserForm.jsp">Add User</a>
     <a  style="display:inline-block;font-family:Trirong,serif;color:#ffffff;font-size: 30px;" href="getAllUsrs">View Users</a>
 </div><br><br>
-<img width="100" height="100" style = "position: absolute;left: 0px;bottom: 0px;" src="resources/images/proxiadLogo.png" alt="proxiadLogo">
+<img width="200" height="200" style = "display: block; margin-left: auto; margin-right: auto;" src="resources/images/proxiadLogo.png" alt="proxiadLogo">
