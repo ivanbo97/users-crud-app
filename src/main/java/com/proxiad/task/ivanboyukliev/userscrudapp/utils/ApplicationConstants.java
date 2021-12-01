@@ -9,5 +9,10 @@ public final class ApplicationConstants {
   public static final String UPDATE_USR_REQ = "/updateRequest";
   public static final String UPDATE_USR_URL = "/updateUser";
 
-
+  // Exception Messages
+  public static final String ERROR_ENTITY_IS_NULL = "Entity Is Null";
+  public static final String ERROR_ENTITY_ID_IS_NULL = "Entity Id Is Null";
+  public static final String ERROR_ENTITY_NAME_IS_NULL = "Entity ID is null.";
+  public static final String ERROR_ENTITY_NAME_IS_EMPTY = "Entity name is empty.";
+  public static final String ERROR_ENTITY_NAME_IS_BLANK = "Entity name is blank.";
 }
