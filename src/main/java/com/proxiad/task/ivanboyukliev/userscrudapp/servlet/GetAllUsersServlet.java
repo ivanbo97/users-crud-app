@@ -20,6 +20,7 @@ public class GetAllUsersServlet extends HttpServlet {
     userService = (UserService) getServletContext().getAttribute("userService");
   }
 
+  @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
       throws ServletException, IOException {
 
