@@ -6,15 +6,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
+import com.proxiad.task.ivanboyukliev.userscrudapp.exception.EntityValidationException;
 import com.proxiad.task.ivanboyukliev.userscrudapp.repository.UserRepository;
 import com.proxiad.task.ivanboyukliev.userscrudapp.utils.SortUsersByIdAscending;
+import com.proxiad.task.ivanboyukliev.userscrudapp.validation.BaseNamedEntityValidator;
 
 public class UserServiceImpl implements UserService {
 
-  private UserRepository userRepository;
+  private final UserRepository userRepository;
+
+  private final BaseNamedEntityValidator entityValidator;
 
   public UserServiceImpl() {
     userRepository = UserRepository.getInstance();
+    entityValidator = new BaseNamedEntityValidator();
   }
 
   @Override
@@ -31,12 +36,14 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void saveUser(User newUser) {
+  public void saveUser(User newUser) throws EntityValidationException {
+    entityValidator.validate(newUser);
     userRepository.addUser(newUser);
   }
 
   @Override
-  public Optional<User> updateUser(int userId, User newUserData) {
+  public Optional<User> updateUser(int userId, User newUserData) throws EntityValidationException {
+    entityValidator.validate(newUserData);
     return userRepository.updateUser(userId, newUserData);
   }
 
