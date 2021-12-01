@@ -16,7 +16,6 @@ public class BaseNamedEntityValidator implements EntityValidator<BaseNamedEntity
   }
 
   private void validateName(String entityName) throws EntityValidationException {
-    System.out.println("EntityName is: " + entityName);
     if (entityName == null) {
       throw new EntityValidationException(ERROR_ENTITY_NAME_IS_NULL);
     }
