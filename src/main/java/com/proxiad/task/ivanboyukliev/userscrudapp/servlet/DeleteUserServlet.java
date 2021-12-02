@@ -12,8 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(DELETE_USR_URL)
 public class DeleteUserServlet extends HttpServlet {
 
-  private static final long serialVersionUID = 83727842346L;
-
   private UserService userService;
 
   @Override

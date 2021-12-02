@@ -15,8 +15,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(UPDATE_USR_URL)
 public class UpdateUserServlet extends HttpServlet {
 
-  private static final long serialVersionUID = 345232423L;
-
   private UserService userService;
 
   @Override

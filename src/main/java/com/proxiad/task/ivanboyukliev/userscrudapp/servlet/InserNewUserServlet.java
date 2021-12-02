@@ -13,8 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(INSERT_USR_URL)
 public class InserNewUserServlet extends HttpServlet {
 
-  private static final long serialVersionUID = 940848694511968216L;
-
   private UserService userService;
 
   @Override
