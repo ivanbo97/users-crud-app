@@ -32,7 +32,7 @@ public class InserNewUserServlet extends HttpServlet {
     newUser.setFirstName(firstName);
     newUser.setLastName(lastName);
     userService.saveUser(newUser);
-
+    resp.setStatus(HttpServletResponse.SC_CREATED);
     // Update user data in servlet context and redirect to user list
     getServletContext().setAttribute("users", userService.findAllUsers());
     getServletContext().getRequestDispatcher("/viewUsers.jsp").forward(req, resp);
