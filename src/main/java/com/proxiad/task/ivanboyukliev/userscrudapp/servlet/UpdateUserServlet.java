@@ -40,7 +40,6 @@ public class UpdateUserServlet extends HttpServlet {
 
     // Update user data in servlet context and redirect to users list
     getServletContext().setAttribute("users", userService.findAllUsers());
-    getServletContext().getRequestDispatcher("/viewUsers.jsp").forward(req, resp);
-
+    resp.sendRedirect("viewUsers.jsp");
   }
 }

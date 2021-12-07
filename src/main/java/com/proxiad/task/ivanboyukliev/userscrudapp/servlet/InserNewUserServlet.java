@@ -33,6 +33,6 @@ public class InserNewUserServlet extends HttpServlet {
     resp.setStatus(HttpServletResponse.SC_CREATED);
     // Update user data in servlet context and redirect to user list
     getServletContext().setAttribute("users", userService.findAllUsers());
-    getServletContext().getRequestDispatcher("/viewUsers.jsp").forward(req, resp);
+    resp.sendRedirect("viewUsers.jsp");;
   }
 }

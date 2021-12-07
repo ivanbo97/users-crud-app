@@ -26,7 +26,7 @@ public class DeleteUserServlet extends HttpServlet {
 
     userService.deleteUserById(id);
     getServletContext().setAttribute("users", userService.findAllUsers());
-    getServletContext().getRequestDispatcher("/viewUsers.jsp").forward(req, resp);
+    resp.sendRedirect("viewUsers.jsp");
   }
 
 }
