@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<spring-context-version>5.3.13</spring-context-version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +32,12 @@
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 			<version>2.0.0</version>
 		</dependency>
+		<!-- Spring Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-context-version}</version>
+		</dependency>
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -43,7 +50,7 @@
 	<build>
 		<finalName>users-crud-app</finalName>
 		<plugins>
-			<!-- Added because of error regarding WebappStructureSerializer  -->
+			<!-- Added because of error regarding WebappStructureSerializer -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.2</version>
