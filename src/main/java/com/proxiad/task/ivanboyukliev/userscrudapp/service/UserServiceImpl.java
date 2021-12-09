@@ -5,21 +5,25 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 import com.proxiad.task.ivanboyukliev.userscrudapp.exception.EntityValidationException;
 import com.proxiad.task.ivanboyukliev.userscrudapp.repository.UserRepository;
 import com.proxiad.task.ivanboyukliev.userscrudapp.utils.SortUsersByIdAscending;
 import com.proxiad.task.ivanboyukliev.userscrudapp.validation.BaseNamedEntityValidator;
 
+@Service
 public class UserServiceImpl implements UserService {
 
   private final UserRepository userRepository;
 
   private final BaseNamedEntityValidator entityValidator;
 
-  public UserServiceImpl() {
-    userRepository = UserRepository.getInstance();
-    entityValidator = new BaseNamedEntityValidator();
+  @Autowired
+  public UserServiceImpl(UserRepository userRepository, BaseNamedEntityValidator entityValidator) {
+    this.userRepository = userRepository;
+    this.entityValidator = entityValidator;
   }
 
   @Override
