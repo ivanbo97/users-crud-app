@@ -29,5 +29,4 @@ public class SpringBeansLoader implements ServletContextListener {
     springContainer.close();
   }
 
-
 }
