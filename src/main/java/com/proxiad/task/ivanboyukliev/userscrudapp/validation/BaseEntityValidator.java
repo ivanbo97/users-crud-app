@@ -3,9 +3,11 @@ package com.proxiad.task.ivanboyukliev.userscrudapp.validation;
 
 import static com.proxiad.task.ivanboyukliev.userscrudapp.utils.ApplicationConstants.ERROR_ENTITY_ID_IS_NULL;
 import static com.proxiad.task.ivanboyukliev.userscrudapp.utils.ApplicationConstants.ERROR_ENTITY_IS_NULL;
+import org.springframework.stereotype.Component;
 import com.proxiad.task.ivanboyukliev.userscrudapp.baseentity.BaseEntity;
 import com.proxiad.task.ivanboyukliev.userscrudapp.exception.EntityValidationException;
 
+@Component
 public class BaseEntityValidator implements EntityValidator<BaseEntity> {
 
   @Override
