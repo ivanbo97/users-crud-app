@@ -5,29 +5,17 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import org.springframework.stereotype.Repository;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 import com.proxiad.task.ivanboyukliev.userscrudapp.utils.RandomNumberGenerator;
 
+@Repository
 public class UserRepository {
 
   private Set<User> users = Collections.synchronizedSet(new HashSet<User>());
 
   private UserRepository() {
     populateRepository();
-  }
-
-  // static inner class - inner classes are not loaded until they are
-  // referenced.
-  private static class SingletonHelper {
-    private static final UserRepository uniqueUnstance = new UserRepository();
-
-  }
-
-  public static UserRepository getInstance() {
-    // Here class loader loads SingletonHelper class, and therefore
-    // uniqueInstance is created. Remember: Class is loaded only once,
-    // when it is first referenced in source code. (Bill Pugh approach of singleton)
-    return SingletonHelper.uniqueUnstance;
   }
 
   private void populateRepository() {
