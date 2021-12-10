@@ -69,10 +69,10 @@ public class User implements BaseNamedEntity, BaseEntity {
 
   @Override
   public String getName() {
-    if (getFirstName().isBlank() || getLastName().isBlank()) {
-      return "";
+    if (firstName == null || lastName == null) {
+      return null;
     }
-    return getFirstName() + getLastName();
+    return firstName + lastName;
   }
 
 }
