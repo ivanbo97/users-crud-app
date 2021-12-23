@@ -16,7 +16,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import com.proxiad.task.ivanboyukliev.userscrudapp.domain.User;
 import com.proxiad.task.ivanboyukliev.userscrudapp.exception.EntityValidationException;
@@ -45,7 +44,6 @@ class UserServiceImplTest {
 
   @BeforeEach
   void setup() {
-    MockitoAnnotations.openMocks(this);
     userService = new UserServiceImpl(userRepository, entityValidator);
   }
 
